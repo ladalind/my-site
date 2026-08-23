@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лада — Испанский из жизни, а не из учебника</title>
+    <meta name="description" content="Преподаватель испанского языка Лада. Жила в Испании, сейчас живу в Колумбии. Индивидуальные и парные онлайн-занятия для жизни, путешествий и переезда.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Лада — Испанский из жизни, а не из учебника">
+    <meta property="og:description" content="Жила в Испании. Сейчас живу в Колумбии. Помогаю заговорить на испанском и понять, как он действительно звучит.">
+    <meta property="og:image" content="lada-colombia.jpg">
+    <meta property="og:url" content="https://example.com">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #FDF6F0;
+            --color-text: #5C4033;
+            --color-accent: #E07A5F;
+            --color-accent-light: rgba(224, 122, 95, 0.08);
+            --color-olive: #6B705C;
+            --color-white: #FFFFFF;
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Manrope', sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+            
+            --radius: 4px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            font-weight: 300;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--color-text);
+        }
+
+        /* Utilities */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-olive);
+            margin-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-olive);
+            padding-bottom: 4px;
+        }
+
+        .highlight {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            border-color: var(--color-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: #c96a50;
+            border-color: #c96a50;
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-text);
+            border-color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-text);
+            color: var(--color-bg);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--spacing-md) 0;
+            z-index: 10;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .hero-content {
+            padding-right: var(--spacing-md);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text);
+            opacity: 0.9;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            height: 80vh;
+            max-height: 700px;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            box-shadow: 20px 20px 0px var(--color-accent-light);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Two Worlds Section */
+        .two-worlds {
+            background-color: var(--color-white);
+        }
+
+        .worlds-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .world-card {
+            padding: var(--spacing-md);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .world-card.spain {
+            background-color: rgba(224, 122, 95, 0.05);
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .world-card.colombia {
+            background-color: rgba(107, 112, 92, 0.05);
+            border-left: 3px solid var(--color-olive);
+        }
+
+        .world-card h3 {
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Classes Section */
+        .classes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .class-item {
+            padding: var(--spacing-md);
+            background: var(--color-white);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .class-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(92, 64, 51, 0.05);
+        }
+
+        .class-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        /* Expertise Section */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            text-align: center;
+        }
+
+        .expertise-item {
+            padding: var(--spacing-md);
+        }
+
+        .expertise-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            line-height: 1;
+        }
+
+        .expertise-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-olive);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 250px;
+            gap: 16px;
+            margin-top: var(--spacing-md);
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--spacing-sm);
+            background: linear-gradient(to top, rgba(92, 64, 51, 0.8), transparent);
+            color: var(--color-white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        /* Editorial Grid Spans */
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 2; }
+        .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+        .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+        .gallery-item:nth-child(7) { grid-column: span 1; grid-row: span 1; }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            max-width: 800px;
+            margin: var(--spacing-md) auto 0;
+        }
+
+        .pricing-card {
+            background: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid rgba(92, 64, 51, 0.1);
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--color-accent);
+        }
+
+        .pricing-type {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .pricing-price {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pricing-note {
+            font-size: 0.9rem;
+            color: var(--color-olive);
+            margin-top: var(--spacing-md);
+            text-align: center;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            background-color: var(--color-text);
+            color: var(--color-bg);
+        }
+
+        .final-cta h2 {
+            color: var(--color-bg);
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .final-cta .btn-primary {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+            font-size: 1.1rem;
+            padding: 1.2rem 3rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--color-bg);
+            border-top: 1px solid rgba(92, 64, 51, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+            padding-left: 5px;
+        }
+
+        /* Mobile Sticky CTA */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(92, 64, 51, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .hero-image-wrapper {
+                height: 50vh;
+                order: -1;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image-wrapper {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .worlds-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 200px;
+            }
+
+            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+            .gallery-item:nth-child(7) { grid-column: span 2; grid-row: span 1; }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links {
+                align-items: center;
+            }
+
+            .sticky-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 80px; /* Space for sticky button */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+            
+            .gallery-item:nth-child(n) { 
+                grid-column: span 1; 
+                grid-row: span 1; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">Лада.</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content fade-in">
+                    <span class="tag">A1–C1 · онлайн · индивидуально и в паре</span>
+                    <h1>Испанский из жизни, а не из учебника</h1>
+                    <p class="hero-subtitle">Жила в Испании. Сейчас живу в Колумбии. Помогаю заговорить на испанском и понять, как он действительно звучит в разных странах.</p>
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn btn-primary">Записаться на занятие</a>
+                        <a href="#about" class="btn btn-secondary">Познакомиться со мной</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper fade-in">
+                    <img src="lada-colombia.jpg" alt="Лада на балконе в Колумбии" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper fade-in">
+                    <img src="professional1.jpg" alt="Лада, профессиональный портрет" class="about-image">
+                </div>
+                <div class="about-text fade-in">
+                    <span class="tag">Обо мне</span>
+                    <h2>Привет! Я Лада</h2>
+                    <p>Преподаватель испанского языка и исследователь культуры.</p>
+                    <p>Преподаю испанский <span class="highlight">3 года</span>, работала преподавателем в университете. За это время обучила более <span class="highlight">100 студентов</span>.</p>
+                    <p>Имею магистратуру в Испании по межкультурной коммуникации и преподаванию языков. Прошла повышение квалификации <span class="highlight">DADIC</span> в Instituto Cervantes.</p>
+                    <p>Имею сертификат <span class="highlight">DELE C2</span>.</p>
+                    <p>Сейчас живу в Колумбии, а до этого жила в Испании. Поэтому для меня испанский — это не только правила и слова из учебника. Это язык реальных людей, музыки, путешествий, привычек и культуры.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two Worlds Section -->
+    <section class="section two-worlds">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <span class="tag">Контекст</span>
+                <h2>Два мира — один язык</h2>
+                <p>Я понимаю не только грамматику, но и культурный контекст, различия в лексике, выражениях, произношении и повседневной коммуникации.</p>
+            </div>
+            <div class="worlds-grid fade-in">
+                <div class="world-card spain">
+                    <h3>🇪🇸 Испания</h3>
+                    <p>Жила и училась в Испании.</p>
+                    <p>Магистратура по межкультурной коммуникации.</p>
+                    <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Европейский вариант, формальное и неформальное общение, местные традиции.</p>
+                </div>
+                <div class="world-card colombia">
+                    <h3>🇨🇴 Колумбия</h3>
+                    <p>Сейчас живу в Колумбии и ежедневно сталкиваюсь с латиноамериканским испанским в реальной жизни.</p>
+                    <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Живой язык улиц, сленг, музыка, ритм и тепло латиноамериканской коммуникации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+                <span class="tag">Процесс</span>
+                <h2>Что будет на занятиях</h2>
+                <p>Мы изучаем испанский, чтобы пользоваться им в реальной жизни, а не просто сдавать тесты.</p>
+            </div>
+            <div class="classes-list fade-in">
+                <div class="class-item">
+                    <span class="class-icon">💬</span>
+                    <h3>Реальные диалоги</h3>
+                    <p>Разбираем ситуации, с которыми вы столкнётесь в аэропорту, кафе, на работе или при знакомстве.</p>
+                </div>
+                <div class="class-item">
+                    <span class="class-icon">🇪🇸🇨🇴</span>
+                    <h3>Испания и Латинская Америка</h3>
+                    <p>Учимся понимать разницу в акцентах и лексике, чтобы чувствовать себя уверенно в любой стране.</p>
+                </div>
+                <div class="class-item">
+                    <span class="class-icon">🗣️</span>
+                    <h3>Разговорная практика</h3>
+                    <p>Говорим с первого занятия. Преодолеваем языковой барьер через обсуждение интересных тем.</p>
+                </div>
+                <div class="class-item">
+                    <span class="class-icon">📚</span>
+                    <h3>Грамматика в контексте</h3>
+                    <p>Никакой сухой зубрёжки. Правила объясняются на примерах из песен, фильмов и реальных историй.</p>
+                </div>
+                <div class="class-item">
+                    <span class="class-icon">🌎</span>
+                    <h3>Культура и повседневная жизнь</h3>
+                    <p>Погружаемся в менталитет, традиции и привычки, чтобы понимать не только слова, но и людей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="fade-in" style="text-align: center;">
+                <span class="tag">Факты</span>
+                <h2>Моя экспертиза</h2>
+            </div>
+            <div class="expertise-grid fade-in">
+                <div class="expertise-item">
+                    <span class="expertise-number">100+</span>
+                    <span class="expertise-label">Студентов</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-number">C2</span>
+                    <span class="expertise-label">DELE<br>Высший уровень</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-number">DADIC</span>
+                    <span class="expertise-label">Instituto<br>Cervantes</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-number">M.A.</span>
+                    <span class="expertise-label">Магистратура<br>Испания</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+                <span class="tag">Доказательства</span>
+                <h2>Мой путь и опыт</h2>
+            </div>
+            <div class="gallery-grid fade-in">
+                <div class="gallery-item">
+                    <img src="university1.jpg" alt="Преподавание в университете">
+                    <div class="gallery-caption">Преподавание в университете</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="university2.jpg" alt="Мои студенты">
+                    <div class="gallery-caption">Мои студенты</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="university3.jpg" alt="Учебный процесс">
+                    <div class="gallery-caption">Учебный процесс</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="university4.jpg" alt="Атмосфера занятий">
+                    <div class="gallery-caption">Атмосфера занятий</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="magistr.jpg" alt="Магистратура в Испании">
+                    <div class="gallery-caption">Магистратура в Испании</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="dadic.jpg" alt="DADIC — Instituto Cervantes">
+                    <div class="gallery-caption">DADIC — Instituto Cervantes</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="dele.jpg" alt="DELE C2">
+                    <div class="gallery-caption">DELE C2</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="fade-in" style="text-align: center;">
+                <span class="tag">Форматы</span>
+                <h2>Стоимость занятий</h2>
+                <p class="pricing-note">A1–C1 · онлайн</p>
+                <p style="margin-top: 1rem; font-style: italic;">Подберём программу под вашу цель и уровень.</p>
+            </div>
+            <div class="pricing-grid fade-in">
+                <div class="pricing-card">
+                    <div class="pricing-type">Индивидуально</div>
+                    <div class="pricing-price">3 000 ₽</div>
+                    <p>60 минут</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Максимальное внимание, гибкий график и персональная траектория обучения.</p>
+                    <a href="https://t.me/slezhy" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Записаться</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-type">В паре</div>
+                    <div class="pricing-price">1 600 ₽</div>
+                    <p>60 минут с человека</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Отличный формат для друзей или коллег. Больше практики диалогов и динамики.</p>
+                    <a href="https://t.me/slezhy" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Записаться</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section final-cta">
+        <div class="container fade-in">
+            <h2>¿Hablamos?</h2>
+            <p>Если ты давно хотел(а) заговорить на испанском — возможно, пора начать.</p>
+            <a href="https://t.me/slezhy" class="btn btn-primary">Написать мне</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem;">Лада.</h3>
+                    <p style="opacity: 0.7;">Испанский из жизни, а не из учебника.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://instagram.com/lyublyu_nebo" target="_blank" rel="noopener">
+                        <span>Instagram</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a href="https://t.me/slezhy" target="_blank" rel="noopener">
+                        <span>Telegram</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a href="https://vk.ru/slezhy_za_toboy" target="_blank" rel="noopener">
+                        <span>ВКонтакте</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a href="mailto:ladastew@gmail.com">
+                        <span>ladastew@gmail.com</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(92, 64, 51, 0.1); text-align: center; font-size: 0.85rem; opacity: 0.6;">
+                © 2026 Лада. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <a href="https://t.me/slezhy" class="btn btn-primary sticky-cta">Записаться на занятие</a>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Smooth scroll for anchor links (fallback for older browsers)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
